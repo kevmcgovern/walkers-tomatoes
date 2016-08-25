@@ -13,7 +13,7 @@ require 'ffaker'
   Movie.create(
     title: FFaker::Movie.title,
     summary: FFaker::HipsterIpsum.paragraph,
-    cast: FFaker::Name.name(6),
+    cast: FFaker::Company.name,
     category: FFaker::Music.genre,
     poster_url: FFaker::Avatar.image,
     mpaa_rating: FFaker::Movie.rating,
