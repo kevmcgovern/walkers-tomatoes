@@ -36,3 +36,11 @@ end
     )
 end
 
+50.times do 
+    Review.create(
+    votes: rand(1..100),
+    description: FFaker::LoremFR.sentence,
+    user_id: rand(1..50), 
+    movie_id: rand(1..100) 
+  )
+end
