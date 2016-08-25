@@ -27,3 +27,12 @@ end
     password: FFaker::Internet.password
     )
 end
+
+50.times do 
+  Star.create(
+    movie_id: rand(1..100), 
+    user_id: rand(1..50), 
+    rating: rand(1..5)
+    )
+end
+
