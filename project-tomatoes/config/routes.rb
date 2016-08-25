@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   resources :reviews, only: [:new, :create, :show]
   resources :stars, only: [:show, :create, :new]
   root 'home#index'
+
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
 end
