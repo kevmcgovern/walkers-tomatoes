@@ -19,3 +19,11 @@ require 'ffaker'
     mpaa_rating: FFaker::Movie.rating,
   )
 end
+
+50.times do 
+  User.create(
+    name: FFaker::Name.name, 
+    email: FFaker::Internet.email,
+    password: FFaker::Internet.password
+    )
+end
