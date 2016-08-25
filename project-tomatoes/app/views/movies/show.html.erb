@@ -1,0 +1,24 @@
+<div id="movie-container"> 
+  <h1><%= @movie.title %></h1>
+  <aside>Rated: <%= @movie.mpaa_rating %></aside>
+  <img src="<%= @movie.poster_url %>">
+    <% if @movie.stars.count != 0  %>
+      <% sum = 0 %>
+      <%@movie.stars.each do |star| %> 
+        <% sum += star.rating %>
+      <% end %>
+      
+      <% average = sum/@movie.stars.count %>
+      <h2>Average Rating: <%= average %></h2>
+    <% else %>
+      <h2>Average Rating Unavailable</h2>
+    <% end %>
+
+  <h3><%= @movie.reviews.count %> Reviews </h3>  
+  <h4>Summary: <%= @movie.summary %></h4>
+  <h4>Cast: <%= @movie.cast %></h4>
+</div>
+
+<div id="movie-reviews">
+</div>  
+
