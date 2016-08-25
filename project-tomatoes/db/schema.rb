@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20160824230108) do
     t.text     "cast"
     t.string   "category"
     t.string   "poster_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "mpaa_rating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "reviews", force: :cascade do |t|
