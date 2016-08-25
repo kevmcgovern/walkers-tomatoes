@@ -6,15 +6,111 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #cccccc;
+      height: 100%;
+    }
+
+    .jumbotron {
+      background-color: #cccccc;
+    }
+    
+    /* Set black background color, white text and some padding */
+/*    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }*/
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 10px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+
   </head>
 
   <body>
 
   <% if current_user %>
-    Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+
+
+<nav class="navbar navbar-inverse navbar-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+           <!--  <span class="icon-bar"></span>
+            <span class="icon-bar"></span> -->
+        </button>
+        
+        <a class="navbar-brand" href="/">HOME</a>
+      </div>
+
+      <div id="navbar" class="navbar-collapse collapse">
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %> </a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>   Logout</a></li>
+        </ul> 
+
+            
+      </div><!--/.navbar-collapse -->
+    </div>
+</nav>
+
+
   <% else %>
-    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-  <% end %>
+
+<nav class="navbar navbar-inverse navbar-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+          <!--   <span class="icon-bar"></span>
+            <span class="icon-bar"></span> -->
+          </button>
+          <a class="navbar-brand" href="/">HOME</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up   </a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>        
+
+        
+            
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+<% end %>
+
 
     <%= yield %>
   </body>
