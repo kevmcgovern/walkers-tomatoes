@@ -3,6 +3,27 @@
 
 <%= movie_poster @movie["poster_path"] %>
 
+<div id="star-ratings">
+
+  <% if current_user %>
+    <p>Average Rating: 3</p>
+    <p>Rate this movie:</p>
+    <%= form_tag stars_path(@movie) do %>
+      <%= radio_button_tag(:stars, "1") %>
+      <%= label_tag(:stars, "1") %>
+      <%= radio_button_tag(:stars, "2") %>
+      <%= label_tag(:stars, "2") %>
+      <%= radio_button_tag(:stars, "3") %>
+      <%= label_tag(:stars, "3") %>
+      <%= radio_button_tag(:stars, "4") %>
+      <%= label_tag(:stars, "4") %>
+      <%= radio_button_tag(:stars, "5") %>
+      <%= label_tag(:stars, "5") %>
+      <%= submit_tag %>
+    <% end %>
+  <% end %>
+</div>
+
 <h3>Facts</h3>
 <p>Budget:  $<%= number_with_delimiter(@movie["budget"], :delimiter => ',') %>
 <p>Revenue: $<%= number_with_delimiter(@movie["revenue"], :delimiter => ',') %>
@@ -20,9 +41,29 @@
   <%end%>
 
 <div id="movie-reviews">
-  
+<% if current_user %>
+  <%= render partial: 'reviews/form', locals: {movie: @movie} %>
+  <% end %>
 </div>
-
+<section id="reviews-container">
+<% movie = Movie.find(@movie['id']) %>
+<% if movie.reviews.any? %>
+  <% movie.reviews.each do |review| %>
+  <div class="review-container">
+  <div class="votes">
+  <% if current_user %>
+    <%= render partial: '/reviews/upvote', locals: { review: review } %>
+    <% end %>
+      <%= pluralize(review.votes.count, "vote") %>
+      </div>
+      <strong><%= review.movie.title %></strong><br>
+      <p>
+        <%= review.description %>
+      </p>
+    </div>
+  <% end %>
+  <% end %>
+</section>
 
 <!-- <div id="movie-container"> 
   <h1>< %= @movie.title %></h1>
@@ -46,4 +87,4 @@
 </div>
 
 <div id="movie-reviews">
-</div>   -->
+
