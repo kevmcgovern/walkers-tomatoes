@@ -1,24 +1,49 @@
-<div id="movie-container"> 
-  <h1><%= @movie.title %></h1>
-  <aside>Rated: <%= @movie.mpaa_rating %></aside>
-  <img src="<%= @movie.poster_url %>">
-    <% if @movie.stars.count != 0  %>
-      <% sum = 0 %>
-      <%@movie.stars.each do |star| %> 
-        <% sum += star.rating %>
-      <% end %>
-      
-      <% average = sum/@movie.stars.count %>
-      <h2>Average Rating: <%= average %></h2>
-    <% else %>
-      <h2>Average Rating Unavailable</h2>
-    <% end %>
 
-  <h3><%= @movie.reviews.count %> Reviews </h3>  
-  <h4>Summary: <%= @movie.summary %></h4>
-  <h4>Cast: <%= @movie.cast %></h4>
+<h1><%= @movie["title"] %></h1>
+
+<%= movie_poster @movie["poster_path"] %>
+
+<h3>Facts</h3>
+<p>Budget:  $<%= number_with_delimiter(@movie["budget"], :delimiter => ',') %>
+<p>Revenue: $<%= number_with_delimiter(@movie["revenue"], :delimiter => ',') %>
+<p>Runtime: <%= @movie["runtime"] %> minutes</p>
+<p>Release Date: <%= @movie["release_date"].to_date.strftime("%m/%d/%Y") if @movie["release_date"] %>
+<h3>Summary</h3>
+
+<p><%= @movie["overview"] %></p>
+
+
+<h3>Cast</h3>
+
+  <% @cast.first(5).each do |cast| %>
+    <p><%= cast["name"] %>, <%= cast["character"] %> </p>
+  <%end%>
+
+<div id="movie-reviews">
+  
+</div>
+
+
+<!-- <div id="movie-container"> 
+  <h1>< %= @movie.title %></h1>
+  <aside>Rated: < %= @movie.mpaa_rating %></aside>
+  <img src="< %= @movie.poster_url %>">
+    < % if @movie.stars.count != 0  %>
+      < %  sum = 0 %>
+      < %@movie.stars.each do |star| %> 
+        < % sum += star.rating %>
+      < % end %>
+      
+      < % average = sum/@movie.stars.count %>
+      <h2>Average Rating: < %= average %></h2>
+    < % else %>
+      <h2>Average Rating Unavailable</h2>
+    < % end %>
+
+  <h3>< %= @movie.reviews.count %> Reviews </h3>  
+  <h4>Summary: < %= @movie.summary %></h4>
+  <h4>Cast: < %= @movie.cast %></h4>
 </div>
 
 <div id="movie-reviews">
-</div>  
-
+</div>   -->
