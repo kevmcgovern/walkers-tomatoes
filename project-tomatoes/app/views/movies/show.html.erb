@@ -30,7 +30,9 @@
   <% movie.reviews.each do |review| %>
   <div class="review-container">
   <div class="votes">
+  <% if current_user %>
     <%= render partial: '/reviews/upvote', locals: { review: review } %>
+    <% end %>
       <%= pluralize(review.votes.count, "vote") %>
       </div>
       <strong><%= review.movie.title %></strong><br>
