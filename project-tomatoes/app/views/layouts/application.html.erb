@@ -10,19 +10,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/application.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
-    
+
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 550px}
-    
+
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
@@ -45,14 +46,14 @@
     /*text-shadow: 1px 1px 1px #FFF;*/
     border:1px solid #E4E4E4;
      }
-    
+
     /* Set black background color, white text and some padding */
 /*    footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }*/
-    
+
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
@@ -80,9 +81,9 @@
            <!--  <span class="icon-bar"></span>
             <span class="icon-bar"></span> -->
         </button>
-        
+
         <a class="navbar-brand" href="/">HOME</a>
-              
+
         <!-- <h3>Search for a movie</h3> -->
 
       </div>
@@ -98,9 +99,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/users/<%= current_user.id %>"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %> </a></li>
           <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>   Logout</a></li>
-        </ul> 
+        </ul>
 
-            
+
       </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -131,10 +132,10 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up   </a></li>
       <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>        
+    </ul>
 
-        
-            
+
+
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

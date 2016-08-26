@@ -24,7 +24,7 @@
 
 
       <h3>Now Playing</h3>
-      
+
       <% @now_playing.first(10).each do |movie| %>
         <% if movie %>
           <%= link_to movie_path(movie.id) do %>
@@ -33,12 +33,15 @@
         <% end %>
       <% end %>
 
-      <p>***insert new releases***</p>
+      <h3>Coming Soon</h3>
 
-      <h3>Fan Favorites</h3>
-
-
-      <p>***insert fan-favs***</p>
+      <% @coming_soon.first(10).each do |movie| %>
+        <% if movie %>
+          <%= link_to movie_path(movie.id) do %>
+            <%= movie_poster (movie.poster_path) %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
 
   </div>

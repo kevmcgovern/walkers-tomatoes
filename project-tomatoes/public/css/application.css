@@ -1,3 +1,15 @@
-.col-sm-8 text-left {
+/*.col-sm-8 text-left {
   color: blue;
+}*/
+
+body {
+  margin:auto;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-size: 2em;
+}
+
+.col-sm-2.sidenav {
+  visibility: hidden;
+  font-size: 1.5em;
 }
