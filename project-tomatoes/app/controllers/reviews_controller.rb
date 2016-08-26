@@ -10,12 +10,20 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def update
+  def upvote
     @review = Review.find(params[:id])
-    if @review.update(review_params)
-      redirect_to @review.movie
+    @review.votes.create
+    redirect_to :back
+  end
+
+  def downvote
+    @review = Review.find(params[:id])
+    if @review.votes.any?
+      @review.votes.last.destroy
+      redirect_to :back
     else
-      redirect_to movies_path
+      flash.now[:alert] = "Sorry, but you can't have negative votes"
+      redirect_to :back
     end
   end
 
