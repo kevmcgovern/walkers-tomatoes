@@ -2,6 +2,7 @@
 <section id="reviews-archive">
 	<% @user.reviews.each do |review| %>
 		<div class="review-container">
+			<%= pluralize(review.votes.count, "vote") %>
 			<strong><%= review.movie.title %></strong><br>
 			<p>
 				<%= review.description %>
