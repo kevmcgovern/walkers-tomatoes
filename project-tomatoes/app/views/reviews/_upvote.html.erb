@@ -1,4 +1,2 @@
-<%= form_for @review, method: :patch, url: review_path do |f| %>
-	<%= f.hidden_field :votes, value: 1 %>
-	<%= f.submit "Upvote" %>
-<% end %>
+<%= button_to '+1', upvote_review_path(review), method: :post %>
+<%= button_to '-1', downvote_review_path(review), method: :delete %>
