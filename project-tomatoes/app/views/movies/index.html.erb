@@ -2,7 +2,7 @@
 
 <% if @movies %>
   <% @movies.each do |movie| %>
-    <div class="col-sm-8 text-left"> 
+    <div class="col-xs-3"> 
       <%= link_to image_tag(movie.poster_url), movie_path(movie)%><br>
       <%= link_to("#{movie.title}", movie_path(movie)) %><br>
 
