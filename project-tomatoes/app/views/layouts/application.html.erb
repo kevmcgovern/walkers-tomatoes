@@ -33,6 +33,18 @@
     .jumbotron {
       background-color: #cccccc;
     }
+
+    .navbar-middle {
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 300px;
+    background: gray;
+    padding: 5px 5px 5px 5px;
+    font: 16px Georgia, "Times New Roman", Times, serif;
+    color: black;
+    /*text-shadow: 1px 1px 1px #FFF;*/
+    border:1px solid #E4E4E4;
+     }
     
     /* Set black background color, white text and some padding */
 /*    footer {
@@ -59,6 +71,7 @@
 
 
 <nav class="navbar navbar-inverse navbar-top">
+
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -69,6 +82,15 @@
         </button>
         
         <a class="navbar-brand" href="/">HOME</a>
+              
+        <!-- <h3>Search for a movie</h3> -->
+
+      </div>
+
+      <div class="navbar-middle">
+        <%= form_tag("/search", method: :get) do %>
+          <%= text_field_tag :query, nil %>
+        <% end %>
       </div>
 
       <div id="navbar" class="navbar-collapse collapse">
@@ -96,7 +118,15 @@
             <span class="icon-bar"></span> -->
           </button>
           <a class="navbar-brand" href="/">HOME</a>
+
         </div>
+
+      <div class="navbar-middle">
+        <ul>SEARCH: <%= form_tag("/search", method: :get) do %>
+          <%= text_field_tag :query, nil %>
+        <% end %></ul>
+      </div>
+
         <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up   </a></li>
