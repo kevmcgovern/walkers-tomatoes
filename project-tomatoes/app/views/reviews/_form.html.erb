@@ -1,0 +1,12 @@
+<%= form_for :review, url: reviews_path do |f| %>
+	<p>
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</p>
+	<%= f.hidden_field :movie_id, { :value => @movie.id } %>
+	<%= f.hidden_field :user_id, { :value => current_user.id } %>
+	<p>
+		<%= f.submit "Real Reel Review" %>
+	</p>
+	
+<% end %>
