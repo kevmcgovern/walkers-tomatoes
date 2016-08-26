@@ -3,7 +3,7 @@
 <% if @movies %>
   <% @movies.each do |movie| %>
     <div class="col-sm-8 text-left"> 
-      <img src="<%= movie.poster_url %>"><br>
+      <%= link_to image_tag(movie.poster_url), movie_path(movie)%>
       <%= link_to("#{movie.title}", movie_path(movie)) %>
     </div>  
   <% end %>
