@@ -3,6 +3,24 @@
 
 <%= movie_poster @movie["poster_path"] %>
 
+<div id="star-ratings">
+<p>Rate this movie:</p>
+  <% if current_user %>
+      
+      <%= radio_button_tag(:stars, "1") %>
+      <%= label_tag(:stars, "1") %>
+      <%= radio_button_tag(:stars, "2") %>
+      <%= label_tag(:stars, "2") %>
+      <%= radio_button_tag(:stars, "3") %>
+      <%= label_tag(:stars, "3") %>
+      <%= radio_button_tag(:stars, "4") %>
+      <%= label_tag(:stars, "4") %>
+      <%= radio_button_tag(:stars, "5") %>
+      <%= label_tag(:stars, "5") %>
+
+  <% end %>
+</div>
+
 <h3>Facts</h3>
 <p>Budget:  $<%= number_with_delimiter(@movie["budget"], :delimiter => ',') %>
 <p>Revenue: $<%= number_with_delimiter(@movie["revenue"], :delimiter => ',') %>
