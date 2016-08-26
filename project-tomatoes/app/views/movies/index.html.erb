@@ -3,8 +3,20 @@
 <% if @movies %>
   <% @movies.each do |movie| %>
     <div class="col-sm-8 text-left"> 
-      <%= link_to image_tag(movie.poster_url), movie_path(movie)%>
-      <%= link_to("#{movie.title}", movie_path(movie)) %>
+      <%= link_to image_tag(movie.poster_url), movie_path(movie)%><br>
+      <%= link_to("#{movie.title}", movie_path(movie)) %><br>
+
+      <% if movie.stars.count != 0  %>
+        <% sum = 0 %>
+        <% movie.stars.each do |star| %> 
+          <% sum += star.rating %>
+        <% end %>
+        <% average = sum/ movie.stars.count %>
+        <p>Average Rating: <%= average %></p><br>
+      <% else %>
+        <p>No ratings</p>
+      <% end %>
+
     </div>  
   <% end %>
 <% end %>
