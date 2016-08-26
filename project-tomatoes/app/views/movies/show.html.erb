@@ -20,7 +20,7 @@
   <%end%>
 
 <div id="movie-reviews">
-  <%= render 'reviews/form' %>
+  <%= render partial: 'reviews/form', locals: {movie: @movie} %>
 </div>
 
 
