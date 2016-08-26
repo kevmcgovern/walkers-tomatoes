@@ -1,1 +1,10 @@
-<h1><%= @movie.title %></h1>
+<h1>All Movies</h1>
+
+<% if @movies %>
+  <% @movies.each do |movie| %>
+    <div class="col-sm-8 text-left"> 
+      <img src="<%= movie.poster_url %>"><br>
+      <%= link_to("#{movie.title}", movie_path(movie)) %>
+    </div>  
+  <% end %>
+<% end %>
