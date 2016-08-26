@@ -21,7 +21,10 @@
       <h1>Welcome</h1>
       <p>Please explore the movie reviews. We are constantly adding new features to give you an enjoyable, interactive, and reliable resource for the best movie reviews. Registered members may leave reviews and rate movies. Click the sign up button on the top to join! Or just browse around to see what other movie-goers have to say. Thank you... </p>
       <hr>
+
+
       <h3>Now Playing</h3>
+      
       <% @now_playing.first(10).each do |movie| %>
         <% if movie %>
           <%= link_to movie_path(movie.id) do %>
