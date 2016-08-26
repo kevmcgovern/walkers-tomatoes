@@ -41,9 +41,29 @@
   <%end%>
 
 <div id="movie-reviews">
+<% if current_user %>
   <%= render partial: 'reviews/form', locals: {movie: @movie} %>
+  <% end %>
 </div>
-
+<section id="reviews-container">
+<% movie = Movie.find(@movie['id']) %>
+<% if movie.reviews.any? %>
+  <% movie.reviews.each do |review| %>
+  <div class="review-container">
+  <div class="votes">
+  <% if current_user %>
+    <%= render partial: '/reviews/upvote', locals: { review: review } %>
+    <% end %>
+      <%= pluralize(review.votes.count, "vote") %>
+      </div>
+      <strong><%= review.movie.title %></strong><br>
+      <p>
+        <%= review.description %>
+      </p>
+    </div>
+  <% end %>
+  <% end %>
+</section>
 
 <!-- <div id="movie-container"> 
   <h1>< %= @movie.title %></h1>
