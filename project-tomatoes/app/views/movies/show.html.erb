@@ -4,8 +4,10 @@
 <%= movie_poster @movie["poster_path"] %>
 
 <div id="star-ratings">
-<p>Rate this movie:</p>
+
   <% if current_user %>
+    <p>Average Rating: 3</p>
+    <p>Rate this movie:</p>
     <%= form_tag stars_path(@movie) do %>
       <%= radio_button_tag(:stars, "1") %>
       <%= label_tag(:stars, "1") %>

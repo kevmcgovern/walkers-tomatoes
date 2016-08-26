@@ -9,12 +9,13 @@ class StarsController < ApplicationController
     else 
       star = Star.new(user_id: current_user.id, rating: params[:stars], movie_id: params[:id])
       if star.save 
+        @saved_rating = star.rating 
         redirect_to movie_path(params[:id])
       else 
         @errors = star.errors.full_messages
         redirect_to movie_path(params[:id])
       end 
     end
-      redirect_to movie_path(params[:id])
+    redirect_to movie_path(params[:id])
   end
 end
